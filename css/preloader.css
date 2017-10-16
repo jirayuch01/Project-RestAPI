@@ -1,0 +1,155 @@
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    background: #191f26;
+    z-index: 99;
+}
+
+body {
+    font-family: 'Lucida Grande', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    overflow-x: hidden;
+}
+
+.heart {
+    font-size: 152px;
+    text-align: center;
+    color: rgba(165, 25, 25, 1);
+    padding: 0;
+    margin: 0;
+}
+
+.pulse1 {
+    -webkit-animation: pulse1 1s linear infinite;
+    -moz-animation: pulse1 1s linear infinite;
+    -ms-animation: pulse1 1s linear infinite;
+    animation: pulse1 1s linear infinite;
+}
+
+@keyframes "pulse1" {
+    0% {
+        color: rgba(165, 25, 25, 1);
+    }
+    90% {
+        color: rgba(255, 0, 0, 0.0);
+    }
+    100% {
+        color: rgba(255, 0, 0, 1.0);
+    }
+}
+
+@-moz-keyframes pulse1 {
+    0% {
+        color: rgba(165, 25, 25, 1);
+    }
+    90% {
+        color: rgba(255, 0, 0, 0.0);
+    }
+    100% {
+        color: rgba(255, 0, 0, 1.0);
+    }
+}
+
+@-webkit-keyframes "pulse1" {
+    0% {
+        color: rgba(165, 25, 25, 1);
+    }
+    90% {
+        color: rgba(255, 0, 0, 0.0);
+    }
+    100% {
+        color: rgba(255, 0, 0, 1.0);
+    }
+}
+
+@-ms-keyframes "pulse1" {
+    0% {
+        color: rgba(165, 25, 25, 1);
+    }
+    90% {
+        color: rgba(255, 0, 0, 0.0);
+    }
+    100% {
+        color: rgba(255, 0, 0, 1.0);
+    }
+}
+
+.pulse2 {
+    -webkit-animation: pulse2 1s linear infinite;
+    -moz-animation: pulse2 1s linear infinite;
+    -ms-animation: pulse2 1s linear infinite;
+    animation: pulse2 1s linear infinite;
+}
+
+@keyframes "pulse2" {
+    0% {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    50% {
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        -o-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-moz-keyframes pulse2 {
+    0% {
+        -moz-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    50% {
+        -moz-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    100% {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes "pulse2" {
+    0% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    50% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-ms-keyframes "pulse2" {
+    0% {
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    50% {
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    100% {
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
