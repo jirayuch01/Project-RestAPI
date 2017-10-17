@@ -3,25 +3,12 @@
     {
       "id": 1,
       "username": "admin",
-      "email": "admin@gmail.com",
       "password": "admin",
       "con-password": "admin",
-      "status": "admin"
-    },
-    {
-      "id": 2,
-      "username": "user",
-      "email": "user@gmail.com",
-      "password": "user",
-      "con-password": "user",
-      "status": "user"
-    }
-  ],
-  "heart": [
-    {
-      "id": 1,
+      "status": "admin",
       "name": "Jirayu Chinnawong",
-      "address": "75/2",
+      "job": "IT",
+      "addr": "75/2",
       "city": "Phuket",
       "zip": "83000",
       "country": "Thailand",
@@ -32,8 +19,30 @@
     },
     {
       "id": 2,
-      "name": "Beer",
-      "address": "75/2",
+      "username": "admin",
+      "password": "admin",
+      "con-password": "admin",
+      "status": "admin",
+      "name": "Jirayu Chinnawong",
+      "job": "IT",
+      "addr": "75/2",
+      "city": "Phuket",
+      "zip": "83000",
+      "country": "Thailand",
+      "tel": "0950193878",
+      "email": "jirayu_ch01@hotmail.com",
+      "image": "https://thumb.ibb.co/cboe36/10175959_10201555543560412_2323531509174738304_n.jpg",
+      "date": "16/10/2560"
+    },
+    {
+      "id": 3,
+      "username": "admin",
+      "password": "admin",
+      "con-password": "admin",
+      "status": "admin",
+      "name": "Jirayu Chinnawong",
+      "job": "IT",
+      "addr": "75/2",
       "city": "Phuket",
       "zip": "83000",
       "country": "Thailand",
@@ -41,6 +50,68 @@
       "email": "jirayu_ch01@hotmail.com",
       "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/Creative-Tail-People-boy.svg",
       "date": "16/10/2560"
+    },
+    {
+      "id": 4,
+      "username": "admin",
+      "password": "admin",
+      "con-password": "admin",
+      "status": "admin",
+      "name": "Jirayu Chinnawong",
+      "job": "IT",
+      "addr": "75/2",
+      "city": "Phuket",
+      "zip": "83000",
+      "country": "Thailand",
+      "tel": "0950193878",
+      "email": "jirayu_ch01@hotmail.com",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/Creative-Tail-People-boy.svg",
+      "date": "16/10/2560"
+    },
+    {
+      "id": 5,
+      "username": "admin",
+      "password": "admin",
+      "con-password": "admin",
+      "status": "admin",
+      "name": "Jirayu Chinnawong",
+      "job": "IT",
+      "addr": "75/2",
+      "city": "Phuket",
+      "zip": "83000",
+      "country": "Thailand",
+      "tel": "0950193878",
+      "email": "jirayu_ch01@hotmail.com",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/Creative-Tail-People-boy.svg",
+      "date": "16/10/2560"
+    },
+    {
+      "username": "",
+      "password": "",
+      "con_password": "",
+      "status": "user",
+      "id": 6
+    },
+    {
+      "username": "",
+      "password": "",
+      "con_password": "",
+      "status": "user",
+      "id": 7
+    },
+    {
+      "username": "",
+      "password": "",
+      "con_password": "",
+      "status": "user",
+      "id": 8
+    },
+    {
+      "username": "",
+      "password": "",
+      "con_password": "",
+      "status": "user",
+      "id": 9
     }
   ]
 }

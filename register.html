@@ -22,30 +22,22 @@
         body {
             background: black;
         }
-
-        html,
-        body,
-        #map-canvas {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
     </style>
 </head>
 
-<body onload="initialize()">
+<body>
     <div id="wrapper">
         <nav class="navbar navbar-inverse bg-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
             <a class="navbar-brand" href="index.html">
-                <kbd style="background-color: pink; color: red">♥</kbd> Heart</a>
+                    <kbd style="background-color: pink; color: red">♥</kbd> Heart</a>
             <ul class="nav navbar-top-links navbar-right">
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
+                    <li>
+                            <a href="contact.html">Contact</a>
+                          </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="pic"></span>
-                        <span class="username"></span>
+                            <span class="pic"></span>
+                            <span class="username"></span>
                         <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
@@ -55,7 +47,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="home.html" onclick="deleteCookie()">
+                            <a href="home.html">
                                 <i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -67,8 +59,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <center>
-                            <h1 class="page-header">Welcome "
-                                <span style="color: #ff3399;" class="name"></span>"
+                            <h1 class="page-header">Welcome "<span style="color: #ff3399;" class="name"></span>" 
                                 <br>to
                                 <i>Dating Site</i>
                             </h1>
@@ -87,12 +78,6 @@
                         <div class="row">
                             <div class="col-lg-3" style="border:1px solid #999; overflow-y:hidden">
                                 <h3>Search members</h3>
-                                <p>
-                                    <b>Last Profiles
-                                        <kbd style="background-color: pink; color: red">
-                                            <span id="conunt"></span></kbd> Found</b>
-                                </p>
-                                <br>
                                 <div class="input-group custom-search-form">
                                     <input type="text" class="form-control" placeholder="Search...">
                                     <span class="input-group-btn">
@@ -101,134 +86,132 @@
                                         </button>
                                     </span>
                                 </div>
+                                <hr class="style5">
                                 <br>
-                                <span id="summary">
-                                </span>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <img src="image/pro.png" class="img-circle" style="max-width:50px" alt='customer image'>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <div style="font-weight:bold;">
+                                            <a style="cursor:pointer">Jirayu Chinnawong</a>
+                                            <span class="pull-right" title="Delete customer">
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <div>75/2 Phuket 83000</div>
+                                    </div>
+                                </div>
                                 <hr class="style5">
                                 <div class="col-lg-12 customer-row animate" repeat="customer in customers">
                                     <as-customer></as-customer>
                                 </div>
                             </div>
                             <div class="col-lg-9" style="border:1px solid #999; overflow-y:auto">
-                                <div class="form-horizontal">
-                                    <br>
-                                    <fieldset>
-                                        <legend>Member Detail</legend>
-                                        <div class="col-lg-3">
-                                            <span class="pic2"></span><br><br>
-                                            <center>
-                                            <span><a href="https://imgbb.com/" target="_blank">click to upload image online.</a></span>
-                                            </center>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="form-group">
-                                                <label for="name" class="col-lg-3 control-label">Full Name</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="name" name="name" model="currentCustomer.FullName" disabled>
-                                                </div>
-                                                <div class="col-lg-1">
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
-                                                        Edit</button>
-                                                </div>
+                                <div ui-view>
+                                    <div class="form-horizontal">
+                                        <br>
+                                        <fieldset>
+                                            <legend>Member Detail</legend>
+                                            <div class="col-lg-3">
+                                                <span class="pic2"></span>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="pic3" class="col-lg-3 control-label">Image</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="pic3" name="pic3" model="currentCustomer.Address" disabled>
+                                            <div class="col-lg-8">
+                                                <div class="form-group">
+                                                    <label for="name" class="col-lg-3 control-label">Full Name</label>
+                                                    <div class="col-lg-8">
+                                                        <input type="text" class="form-control" id="name" name="name" 
+                                                        model="currentCustomer.FullName" disabled>
+                                                    </div>
+                                                    <div class="col-lg-1">
+                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                                                            Edit</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="job" class="col-lg-3 control-label">Job</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="job" name="job" model="currentCustomer.Address" disabled>
+                                                <div class="form-group">
+                                                        <label for="pic3" class="col-lg-3 control-label">Image</label>
+                                                        <div class="col-lg-8">
+                                                            <input type="text" class="form-control"  id="pic3" name="pic3" 
+                                                            model="currentCustomer.Address" disabled>
+                                                        </div>
+                                                    </div>
+                                                <div class="form-group">
+                                                    <label for="job" class="col-lg-3 control-label">Job</label>
+                                                    <div class="col-lg-8">
+                                                        <input type="text" class="form-control"  id="job" name="job" 
+                                                        model="currentCustomer.Address" disabled>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="addr" class="col-lg-3 control-label">Address</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="addr" name="addr" model="currentCustomer.Address" disabled>
+                                                <div class="form-group">
+                                                        <label for="address" class="col-lg-3 control-label">Address</label>
+                                                        <div class="col-lg-8">
+                                                            <input type="text" class="form-control"  id="address" name="address" 
+                                                            model="currentCustomer.Address" disabled>
+                                                        </div>
+                                                    </div>
+
+                                                <div class="form-group">
+                                                    <label for="city" class="col-lg-3 control-label">City</label>
+                                                    <div class="col-lg-8">
+                                                        <input type="text" class="form-control" id="city" name="city" 
+                                                         model="currentCustomer.City" disabled>
+                                                    </div>
+                                                </div>                                               
+                                                 <div class="form-group">
+                                                    <label for="zip" class="col-lg-3 control-label">Zip Code</label>
+                                                    <div class="col-lg-8">
+                                                        <input type="text" class="form-control"  id="zip" name="zip" 
+                                                        model="currentCustomer.ZipCode" disabled>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="city" class="col-lg-3 control-label">City</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="city" name="city" model="currentCustomer.City" disabled>
+                                                <div class="form-group">
+                                                    <label for="country" class="col-lg-3 control-label">Country</label>
+                                                    <div class="col-lg-8">
+                                                        <input type="text" class="form-control"  id="country" name="country" 
+                                                        model="currentCustomer.Country" disabled>
+                                                    </div>
                                                 </div>
+                                                    <div class="form-group">
+                                                            <label for="tel" class="col-lg-3 control-label">Telephone number</label>
+                                                            <div class="col-lg-8">
+                                                                <input type="text" class="form-control"  id="tel" name="tel" 
+                                                                model="currentCustomer.Address" disabled>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <label for="email" class="col-lg-3 control-label">E-mail</label>
+                                                                <div class="col-lg-8">
+                                                                    <input type="text" class="form-control"  id="email" name="email" 
+                                                                    model="currentCustomer.Address" disabled>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <label for="date" class="col-lg-3 control-label">Update data</label>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control"  id="date" name="date" 
+                                                                        model="currentCustomer.Address" disabled>
+                                                                    </div>
+                                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="zip" class="col-lg-3 control-label">Zip Code</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="zip" name="zip" model="currentCustomer.ZipCode" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="country" class="col-lg-3 control-label">Country</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="country" name="country" model="currentCustomer.Country" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="tel" class="col-lg-3 control-label">Telephone number</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="tel" name="tel" model="currentCustomer.Address" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email" class="col-lg-3 control-label">E-mail</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="email" name="email" model="currentCustomer.Address" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="date" class="col-lg-3 control-label">Update data</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="date" name="date" model="currentCustomer.Address" disabled>
-                                                </div>
-                                                <input id="canvas" type="hidden">
-                                            </div>
-                                        </div>
-                                    </fieldset>
+                                        </fieldset>AIzaSyDfyFvZCww-rijl6cbmrZU_OTmY3xVKleI
+                                        <br>
+                                        <center>
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.002871464434!2d98.34988941267238!3d7.894767007898271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3050303528303419%3A0x43ed556e96eb7eb8!2sFaculty+of+Technology+and+Environment!5e0!3m2!1sen!2sth!4v1508085336951"
+                                                width="900" height="270" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                        </center>
+                                        <br>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <br>
-                        <br>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script type="text/javascript">
-        var geocoder;
-        var map;
-        function initialize() {
-            // add mapOptions here to the values in the input boxes.
-            var mapOptions = {
-                center: new google.maps.LatLng(-34.397, 100.644),
-                zoom: 15,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            map = new google.maps.Map(document.getElementById("map_canvas"),
-                mapOptions);
-            geocoder = new google.maps.Geocoder();
-
-            var canvas = document.getElementById('canvas').value;
-            geocoder.geocode({ 'address': canvas }, function (results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    map.setCenter(results[0].geometry.location);
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location
-                    });
-                } else {
-                    //alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-        }
-    </script>
-    <div id="map_canvas" style="width:100%; height:40%"></div>
     <footer class="py-5 bg-dark">
         <div class="container">
             <br>
@@ -241,6 +224,8 @@
             </p>
         </div>
     </footer>
+
+
 
     <!-- add -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -262,6 +247,8 @@
                             <label for="message-text" class="form-control-label">Message:</label>
                             <textarea class="form-control" id="message-text"></textarea>
                         </div>
+
+
                         <div class="form-group">
                             <label for="inputEmail" class="col-lg-3 control-label">Full Name</label>
                             <div class="col-lg-8">
@@ -352,6 +339,8 @@
                             <label for="message-text" class="form-control-label">Message:</label>
                             <textarea class="form-control" id="message-text"></textarea>
                         </div>
+
+
                         <div class="form-group">
                             <label for="inputEmail" class="col-lg-3 control-label">Full Name</label>
                             <div class="col-lg-8">
@@ -418,16 +407,17 @@
         })
     </script>
 
-    <script type="text/javascript" src="new/admin.js"></script>
-    <script type="text/javascript" src="js/jquery.cookie.js"></script>
-    <script type="text/javascript">
-        console.log($.cookie('keep'));
 
-        function deleteCookie() {
-            $.removeCookie('keep');
-            console.log($.removeCookie('keep'));
-        }
-    </script>
+        <script type="text/javascript" src="new/admin.js"></script>
+        <script type="text/javascript" src="js/jquery.cookie.js"></script>
+        <script type="text/javascript">
+            console.log($.cookie('keep'));
+
+            function deleteCookie() {
+                $.removeCookie('keep');
+                console.log($.removeCookie('keep'));
+            }
+        </script>
 </body>
 
 </html>
