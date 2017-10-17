@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/cursor.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/app.css">
   <style>
     body {
       padding-top: 54px;
@@ -80,22 +81,35 @@
             <div class="finger"></div>
           </div>
         </div>
-        <form>
+        <form id="form" action="" method="POST" role="form">
           <div class="hand"></div>
           <div class="hand rgt"></div>
           <h1>
             <i>Heart Login</i>
           </h1>
           <div class="form-group">
-            <input required="required" class="form-control">
-            <label class="form-label">Username </label>
+              <label for="username" class="form-label"> </label>
+              <input type="text" class="form-control" id="username" name="username" 
+              placeholder="Username"  maxlength="12" autofocus>
+              <span></span>
           </div>
           <div class="form-group">
-            <input id="password" type="password" required="required" class="form-control">
-            <label class="form-label">Password</label>
-            <p class="alert">Invalid Credentials..!!</p>
-            <button class="btn">Login </button>
-            <button class="btn">Register </button>
+            <label for="password" class="form-label"></label>
+            <input type="password" class="form-control" id="password" name="password" 
+            placeholder="Password" maxlength="12">
+            <span></span>
+						<div id="err" style="display:none" class="alert alert-danger alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+                <strong>Incorrect username or password</strong><br>
+                <span style="color:blue;font-weight:bold" id="summary"></span>
+              </div>
+              <div id="suc" style="display:none" class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+                <strong>Login Successful!!!</strong>
+              </div>
+            <button type="submit" id="signin" name="button" onclick="create()" class="btn">
+                Login</button>
+            <button class="btn"><a href="signup.html" style="color:pink;text-decoration: none !important;text-decoration: underline;"> Register</a></button>
           </div>
         </form>
       </div>
@@ -116,6 +130,15 @@
   <script src="vendor/popper/popper.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/login.js"></script>
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="new/singins.js"></script>
+  <script type="text/javascript" src="js/jquery.cookie.js"></script>
+  <script type="text/javascript">
+    function create() {
+        $.cookie('keep', 'user data');
+        console.log($.cookie('keep'));
+    }
+  </script>
 </body>
 
 </html>
