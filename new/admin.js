@@ -153,6 +153,7 @@ $(document).ready(function () {
                 }
                 var strDateTime1 = getFormattedDate();
                 $('#e_date').val(strDateTime1);
+                $('#a_date').val(strDateTime1);
                 $('#e_username').val(inf[0].username);
                 $('#e_pass').val(inf[0].password);
                 $('#e_con-pass').val(inf[0].con_password);

@@ -2,585 +2,584 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="image/favicon.ico">
-    <link rel="shortcut icon" type="image/ico" href="image/favicon.ico">
-    <title>Heart | Admin</title>
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap2.min.css">
-    <link rel="stylesheet" href="vendor/metisMenu/metisMenu.min.css">
-    <link rel="stylesheet" href="dist/css/sb-admin-2.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/cursor.css">
-    <style>
-        hr.style5 {
-            background-color: #fff;
-            border-top: 1px dashed #8c8b8b;
-        }
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="image/favicon.ico">
+  <link rel="shortcut icon" type="image/ico" href="image/favicon.ico">
+  <title>Heart | Admin</title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap2.min.css">
+  <link rel="stylesheet" href="vendor/metisMenu/metisMenu.min.css">
+  <link rel="stylesheet" href="dist/css/sb-admin-2.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/cursor.css">
+  <style>
+    hr.style5 {
+      background-color: #fff;
+      border-top: 1px dashed #8c8b8b;
+    }
 
-        body {
-            background: black;
-        }
+    body {
+      background: black;
+    }
 
-        html,
-        body,
-        #map-canvas {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-    </style>
+    html,
+    body,
+    #map-canvas {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+  </style>
 </head>
 
 <body onload="initialize()">
-    <div id="wrapper">
-        <nav class="navbar navbar-inverse bg-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <a class="navbar-brand" href="index.html">
-                <kbd style="background-color: pink; color: red">♥</kbd> Heart</a>
-            <ul class="nav navbar-top-links navbar-right">
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="pic"></span>
-                        <span class="username"></span>
-                        <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li>
-                            <a class="account" href="#">
-                                <i class="fa fa-user fa-fw"></i> My Profile</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="home.html" onclick="deleteCookie()">
-                                <i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <center>
-                            <h1 class="page-header">Welcome "
-                                <span style="color: #ff3399;" class="name"></span>"
-                                <br>to
-                                <i>Dating Site</i>
-                            </h1>
-                        </center>
-                        <br>
-                        <div class="row">
-                            <div class="col-lg-10">
-                                <h1>Dating member</h1>
-                            </div>
-                            <div class="col-lg-2">
-                                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#add" data-whatever="@mdo">
-                                    <i class="fa fa-plus"></i>
-                                    Add new member</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-3" style="border:1px solid #999; height:564px;width:320px; overflow:scroll;overflow-x:hidden;overflow-y:scroll;">
-                                <h3>Search members</h3>
-                                <p>
-                                    <b>Last Profiles
-                                        <kbd style="font-size: 18px; background-color: pink; color: red">
-                                            <span id="conunt"></span>
-                                        </kbd> Found</b>
-                                </p>
-                                <br>
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                                <br>
-                                <span id="summary">
-                                </span>
-                                <hr class="style5">
-                                <div class="col-lg-12 customer-row animate" repeat="customer in customers">
-                                    <as-customer></as-customer>
-                                </div>
-                            </div>
-                            <div class="col-lg-9" style="border:1px solid #999; overflow-y:auto">
-                                <div class="form-horizontal">
-                                    <br>
-                                    <fieldset>
-                                        <legend>Member Detail</legend>
-                                        <div class="col-lg-3">
-                                            <span class="pic2"></span>
-                                            <br>
-                                            <br>
-                                            <center>
-                                                <span>
-                                                    <a href="https://imgbb.com/" target="_blank">click to upload image online.</a>
-                                                </span>
-                                            </center>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="form-group">
-                                                <label for="name" class="col-lg-3 control-label">Full Name</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control name" name="name" disabled>
-                                                </div>
-                                                <div class="col-lg-1">
-                                                    <button type="button" class="btn btn-primary edit" data-toggle="modal" data-target="#edit" data-whatever="@mdo">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="pic3" class="col-lg-3 control-label">Image</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control pic3" name="pic3" disabled>
-                                                </div>
-                                                <div class="col-lg-1">
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo">
-                                                        <i class="fa fa-trash"></i> Delete</button>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="job" class="col-lg-3 control-label">Job</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control job" name="job" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="addr" class="col-lg-3 control-label">Address</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control addr" name="addr" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="city" class="col-lg-3 control-label">City</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control city" name="city" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="zip" class="col-lg-3 control-label">Zip Code</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control zip" name="zip" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="country" class="col-lg-3 control-label">Country</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control country" name="country" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="tel" class="col-lg-3 control-label">Telephone number</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control tel" name="tel" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email" class="col-lg-3 control-label">E-mail</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control email" name="email" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="date" class="col-lg-3 control-label">Update data</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control date" name="date" disabled>
-                                                </div>
-                                                <input id="canvas" type="hidden">
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script type="text/javascript">
-        var geocoder;
-        var map;
-        function initialize() {
-            var mapOptions = {
-                center: new google.maps.LatLng(-34.397, 100.644),
-                zoom: 15,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            map = new google.maps.Map(document.getElementById("map_canvas"),
-                mapOptions);
-            geocoder = new google.maps.Geocoder();
-
-            var canvas = document.getElementById('canvas').value;
-            geocoder.geocode({ 'address': canvas }, function (results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    map.setCenter(results[0].geometry.location);
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location
-                    });
-                } else {
-                    //alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-        }
-    </script>
-    <div id="map_canvas" style="width:100%; height:40%"></div>
-    <footer class="py-5 bg-dark">
-        <div class="container">
+  <div id="wrapper">
+    <nav class="navbar navbar-inverse bg-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
+      <a class="navbar-brand" href="index.html">
+        <kbd style="background-color: pink; color: red">♥</kbd> Heart</a>
+      <ul class="nav navbar-top-links navbar-right">
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <span class="pic"></span>
+            <span class="username"></span>
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <li>
+              <a class="account" href="#">
+                <i class="fa fa-user fa-fw"></i> My Profile</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="home.html" onclick="deleteCookie()">
+                <i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <center>
+              <h1 class="page-header">Welcome "
+                <span style="color: #ff3399;" class="name"></span>"
+                <br>to
+                <i>Dating Site</i>
+              </h1>
+            </center>
             <br>
-            <p style="color: white;" class="m-0 text-center text-white">
-                Copyright &copy; 2017 Dating Site Developed by
-                <a style="color: aqua;" target="_blank" href="https://web.facebook.com/JIch01beer" target="_blank">
-                    <b>Jirayu Chinnawong
-                        <b>
-                </a>
-            </p>
-        </div>
-    </footer>
-
-    <!-- add -->
-    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: greenyellow">
-                    <h4 class="modal-title" id="exampleModalLabel">
-                        <kbd style="font-size: 18px; background-color: black; color: red">
-                            <i class="fa fa-plus"></i>
-                        </kbd>
-                        <b>Add new member</b>
-                        <div id="err3" style="display:none" class="alert alert-success alert-dismissable fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
-                            <strong>Add Successful!!!</strong>
-                        </div>
-                        <div id="err2" style="display:none" class="alert alert-danger alert-dismissable fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
-                            <strong>Incorrect!!! : </strong>
-                            <span style="color:blue;font-weight:bold" id="summary2">
-                                Your form contains tons of errors! Please try again.</span>
-                        </div>
-                    </h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="addForm" method="POST" role="form">
-                        <div class="form-group">
-                            <label for="a_name" class="col-lg-3 control-label">Full Name</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_name" name="a_name" placeholder="Put a Full Name here.">
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="a_image" class="col-lg-3 control-label">Image</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_image" name="a_image" placeholder="Put a Image here.">
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="a_job" class="col-lg-3 control-label">Job</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_job" name="a_job" placeholder="Put a Job here.">
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="a_addr" class="col-lg-3 control-label">Address</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_addr" name="a_addr" placeholder="Put a Address here.">
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="a_city" class="col-lg-3 control-label">City</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_city" name="a_city" placeholder="Put a City here.">
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="a_zip" class="col-lg-3 control-label">Zip Code</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_zip" name="a_zip" placeholder="Put a Zip Code here.">
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="a_country" class="col-lg-3 control-label">Country</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_country" name="a_country" placeholder="Put a Country here.">
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="a_tel" class="col-lg-3 control-label">Telephone</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_tel" name="a_tel" placeholder="Put a Telephone here.">
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="a_mail" class="col-lg-3 control-label">E-mail</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_mail" name="a_mail" placeholder="Put an E-mail here.">
-                                <span></span>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="a_username" class="col-lg-3 control-label">Username</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_username" name="a_username" placeholder="Put an Username here.">
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Password</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_pass" name="a_pass" placeholder="Put a Password here.">
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Confirm pass</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_con-pass" name="a_con-pass" placeholder="Put a Confirm pass here.">
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Status</label>
-                            <div class="col-lg-8">
-                                <p></p>
-                                <input type="radio" id="a_status" name="a_status" value="admin"> admin
-                                <br>
-                                <input type="radio" id="a_status" name="a_status" value="user" checked> user
-                                <br>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="a_date" class="col-lg-3 control-label">Date</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="a_date" name="a_date" readonly>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success" id="add">Save</button>
-                </div>
+            <div class="row">
+              <div class="col-lg-10">
+                <h1>Dating member</h1>
+              </div>
+              <div class="col-lg-2">
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#add" data-whatever="@mdo">
+                  <i class="fa fa-plus"></i>
+                  Add new member</button>
+              </div>
             </div>
-        </div>
-    </div>
-
-    <!-- delete -->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: #ff3399">
-                    <h4 class="modal-title" id="exampleModalLabel">
-                        <kbd style="font-size: 18px; background-color: black; color: red">
-                            <i class="fa fa-plus"></i>
-                        </kbd>
-                        <b>Delete member</b>
-                    </h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+            <div class="row">
+              <div class="col-lg-3" style="border:1px solid #999; height:564px;width:320px; overflow:scroll;overflow-x:hidden;overflow-y:scroll;">
+                <h3>Search members</h3>
+                <p>
+                  <b>Last Profiles
+                    <kbd style="font-size: 18px; background-color: pink; color: red">
+                      <span id="conunt"></span>
+                    </kbd> Found</b>
+                </p>
+                <br>
+                <div class="input-group custom-search-form">
+                  <input type="text" class="form-control" placeholder="Search...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                      <i class="fa fa-search"></i>
                     </button>
+                  </span>
                 </div>
-                <div class="modal-body">
-                    <h1>Do you want to delete "
-                        <span style="color: #ff3399" class="d_name"></span>" ?</h1>
+                <br>
+                <span id="summary">
+                </span>
+                <hr class="style5">
+                <div class="col-lg-12 customer-row animate" repeat="customer in customers">
+                  <as-customer></as-customer>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="button" class="btn btn-danger" id="del">Yes</button>
+              </div>
+              <div class="col-lg-9" style="border:1px solid #999; overflow-y:auto">
+                <div class="form-horizontal">
+                  <br>
+                  <fieldset>
+                    <legend>Member Detail</legend>
+                    <div class="col-lg-3">
+                      <span class="pic2"></span>
+                      <br>
+                      <br>
+                      <center>
+                        <span>
+                          <a href="https://imgbb.com/" target="_blank">click to upload image online.</a>
+                        </span>
+                      </center>
+                    </div>
+                    <div class="col-lg-8">
+                      <div class="form-group">
+                        <label for="name" class="col-lg-3 control-label">Full Name</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control name" name="name" disabled>
+                        </div>
+                        <div class="col-lg-1">
+                          <button type="button" class="btn btn-primary edit" data-toggle="modal" data-target="#edit" data-whatever="@mdo">
+                            <i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="pic3" class="col-lg-3 control-label">Image</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control pic3" name="pic3" disabled>
+                        </div>
+                        <div class="col-lg-1">
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo">
+                            <i class="fa fa-trash"></i> Delete</button>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="job" class="col-lg-3 control-label">Job</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control job" name="job" disabled>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="addr" class="col-lg-3 control-label">Address</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control addr" name="addr" disabled>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="city" class="col-lg-3 control-label">City</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control city" name="city" disabled>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="zip" class="col-lg-3 control-label">Zip Code</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control zip" name="zip" disabled>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="country" class="col-lg-3 control-label">Country</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control country" name="country" disabled>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="tel" class="col-lg-3 control-label">Telephone number</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control tel" name="tel" disabled>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="col-lg-3 control-label">E-mail</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control email" name="email" disabled>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="date" class="col-lg-3 control-label">Update data</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control date" name="date" disabled>
+                        </div>
+                        <input id="canvas" type="hidden">
+                      </div>
+                    </div>
+                  </fieldset>
                 </div>
+              </div>
             </div>
+            <br>
+            <br>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- delete -->
-    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: #ff3399">
-                    <h4 class="modal-title" id="exampleModalLabel">
-                        <kbd style="font-size: 18px; background-color: black; color: red">
-                            <i class="fa fa-plus"></i>
-                        </kbd>
-                        <b>Delete member</b>
-                    </h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h1>Do you want to delete "
-                        <span style="color: #ff3399" class="d_name"></span>" ?</h1>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="button" class="btn btn-danger" id="del">Yes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- edit -->
-    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: aqua">
-                    <h4 class="modal-title" id="exampleModalLabel">
-                        <kbd style="font-size: 18px; background-color: black; color: red">
-                            <i class="fa fa-plus"></i>
-                        </kbd>
-                        <b>Edit member</b>
-                        <br>
-                        <span class="contain"></span>
-
-                        <div id="err" style="display:none" class="alert alert-success alert-dismissable fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
-                            <strong>Update Successful!!!</strong>
-                        </div>
-                    </h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="e_name" class="col-lg-3 control-label">Full Name</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_name" name="e_name" autofocus>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_image" class="col-lg-3 control-label">Image</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_image" name="e_image">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_job" class="col-lg-3 control-label">Job</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_job" name="e_job">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_addr" class="col-lg-3 control-label">Address</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_addr" name="e_addr">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_city" class="col-lg-3 control-label">City</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_city" name="e_city">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_zip" class="col-lg-3 control-label">Zip Code</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_zip" name="e_zip">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_country" class="col-lg-3 control-label">Country</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_country" name="e_country">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_tel" class="col-lg-3 control-label">Telephone</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_tel" name="e_tel">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_mail" class="col-lg-3 control-label">E-mail</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_mail" name="e_mail">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_username" class="col-lg-3 control-label">Username</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_username" name="e_username">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_pass" class="col-lg-3 control-label">Password</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_pass" name="e_pass">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_con-pass" class="col-lg-3 control-label">Confirm pass</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_con-pass" name="e_con-pass">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_status" class="col-lg-3 control-label">Status</label>
-                            <div class="col-lg-8">
-                                <p></p>
-                                <input type="radio" id="e_status" name="e_status" value="admin"> admin
-                                <br>
-                                <input type="radio" id="e_status" name="e_status" value="user"> user
-                                <br>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="e_date" class="col-lg-3 control-label">Date</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="e_date" name="e_date" readonly>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="save">Edit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="vendor/jquery/jquery2.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap2.min.js"></script>
-    <script src="vendor/metisMenu/metisMenu.min.js"></script>
-    <script src="dist/js/sb-admin-2.js"></script>
-    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="new/admin.js"></script>
-    <script type="text/javascript" src="new/admin2.js"></script>
-    <script type="text/javascript" src="js/jquery.cookie.js"></script>
-    <script type="text/javascript">
-        console.log($.cookie('keep'));
-        function deleteCookie() {
-            $.removeCookie('keep');
-            console.log($.removeCookie('keep'));
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript">
+    var geocoder;
+    var map;
+    function initialize() {
+      var mapOptions = {
+        center: new google.maps.LatLng(-34.397, 100.644),
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      map = new google.maps.Map(document.getElementById("map_canvas"),
+        mapOptions);
+      geocoder = new google.maps.Geocoder();
+      var canvas = document.getElementById('canvas').value;
+      geocoder.geocode({ 'address': canvas }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+          });
+        } else {
+          //alert('Geocode was not successful for the following reason: ' + status);
         }
-    </script>
+      });
+    }
+  </script>
+  <div id="map_canvas" style="width:100%; height:40%"></div>
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <br>
+      <p style="color: white;" class="m-0 text-center text-white">
+        Copyright &copy; 2017 Dating Site Developed by
+        <a style="color: aqua;" target="_blank" href="https://web.facebook.com/JIch01beer" target="_blank">
+          <b>Jirayu Chinnawong
+            <b>
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- add -->
+  <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: greenyellow">
+          <h4 class="modal-title" id="exampleModalLabel">
+            <kbd style="font-size: 18px; background-color: black; color: red">
+              <i class="fa fa-plus"></i>
+            </kbd>
+            <b>Add new member</b>
+          </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form id="signupForm" action="" method="POST" role="form">
+            <div id="suc" style="display:none" class="alert alert-success alert-dismissable">
+              <strong>Add Successful!!!</strong>
+              <button type="button" class="close" data-dismiss="alert">×</button>
+            </div>
+            <div class="form-group">
+              <label for="username" class="col-lg-3 control-label">Username</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" name="username" id="username" placeholder="Username has max length to 12" maxlength="12"
+                  autofocus>
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="col-lg-3 control-label">Password</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="password" name="password" id="password" placeholder="Password has max length to 12" maxlength="12">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="con_password" class="col-lg-3 control-label">Confirm pass</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="password" name="con_password" id="con_password" placeholder="Password has max length to 12"
+                  maxlength="12">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-lg-3 control-label">Confirm pass</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" name="name" id="name" placeholder="Password has max length to 12" maxlength="12">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="image" class="col-lg-3 control-label">Image</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="image" name="image" placeholder="Put a Image here.">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="job" class="col-lg-3 control-label">Job</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="job" name="job" placeholder="Put a Job here.">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="addr" class="col-lg-3 control-label">Address</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="addr" name="addr" placeholder="Put a Address here.">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="city" class="col-lg-3 control-label">City</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="city" name="city" placeholder="Put a City here.">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="zip" class="col-lg-3 control-label">Zip Code</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="zip" name="zip" placeholder="Put a Zip Code here.">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="country" class="col-lg-3 control-label">Country</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="country" name="country" placeholder="Put a Country here.">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="tel" class="col-lg-3 control-label">Telephone</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="tel" name="tel" placeholder="Put a Telephone here." maxlength="10">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-lg-3 control-label">E-mail</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="email" name="email" placeholder="Put an E-mail here.">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="a_date" class="col-lg-3 control-label">Date</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="a_date" name="a_date" readonly>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="status" class="col-lg-3 control-label">Status</label>
+              <div class="col-lg-8">
+                <p></p>
+                <input type="radio" id="status" name="status" value="admin"> admin
+                <br>
+                <input type="radio" id="status" name="status" value="user" checked> user
+                <br>
+                <p></p>
+              </div>
+              <br>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success" id="signup">Add</button>
+              </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- delete -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #ff3399">
+          <h4 class="modal-title" id="exampleModalLabel">
+            <kbd style="font-size: 18px; background-color: black; color: red">
+              <i class="fa fa-plus"></i>
+            </kbd>
+            <b>Delete member</b>
+          </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h1>Do you want to delete "
+            <span style="color: #ff3399" class="d_name"></span>" ?</h1>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+          <button type="button" class="btn btn-danger" id="del">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- delete -->
+  <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #ff3399">
+          <h4 class="modal-title" id="exampleModalLabel">
+            <kbd style="font-size: 18px; background-color: black; color: red">
+              <i class="fa fa-plus"></i>
+            </kbd>
+            <b>Delete member</b>
+          </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h1>Do you want to delete "
+            <span style="color: #ff3399" class="d_name"></span>" ?</h1>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+          <button type="button" class="btn btn-danger" id="del">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- edit -->
+  <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: aqua">
+          <h4 class="modal-title" id="exampleModalLabel">
+            <kbd style="font-size: 18px; background-color: black; color: red">
+              <i class="fa fa-plus"></i>
+            </kbd>
+            <b>Edit member</b>
+            <br>
+            <span class="contain"></span>
+
+            <div id="err" style="display:none" class="alert alert-success alert-dismissable fade in">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+              <strong>Update Successful!!!</strong>
+            </div>
+          </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="e_name" class="col-lg-3 control-label">Full Name</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_name" name="e_name" autofocus>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_image" class="col-lg-3 control-label">Image</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_image" name="e_image">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_job" class="col-lg-3 control-label">Job</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_job" name="e_job">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_addr" class="col-lg-3 control-label">Address</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_addr" name="e_addr">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_city" class="col-lg-3 control-label">City</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_city" name="e_city">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_zip" class="col-lg-3 control-label">Zip Code</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_zip" name="e_zip">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_country" class="col-lg-3 control-label">Country</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_country" name="e_country">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_tel" class="col-lg-3 control-label">Telephone</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_tel" name="e_tel">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_mail" class="col-lg-3 control-label">E-mail</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_mail" name="e_mail">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_username" class="col-lg-3 control-label">Username</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_username" name="e_username">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_pass" class="col-lg-3 control-label">Password</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_pass" name="e_pass">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_con-pass" class="col-lg-3 control-label">Confirm pass</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_con-pass" name="e_con-pass">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_status" class="col-lg-3 control-label">Status</label>
+              <div class="col-lg-8">
+                <p></p>
+                <input type="radio" id="e_status" name="e_status" value="admin"> admin
+                <br>
+                <input type="radio" id="e_status" name="e_status" value="user"> user
+                <br>
+                <p></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_date" class="col-lg-3 control-label">Date</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_date" name="e_date" readonly>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="save">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/jquery/jquery2.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap2.min.js"></script>
+  <script src="vendor/popper/popper.min.js"></script>
+  <script src="vendor/metisMenu/metisMenu.min.js"></script>
+  <script src="dist/js/sb-admin-2.js"></script>
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="new/admin.js"></script>
+  <script type="text/javascript" src="new/admin2.js"></script>
+  <script type="text/javascript" src="js/jquery.cookie.js"></script>
+  <script type="text/javascript">
+    console.log($.cookie('keep'));
+    function deleteCookie() {
+      $.removeCookie('keep');
+      console.log($.removeCookie('keep'));
+    }
+  </script>
+
 </body>
 
 </html>

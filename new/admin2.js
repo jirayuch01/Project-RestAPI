@@ -2,31 +2,34 @@ $(document).ready(function () {
     if (!!$.cookie('keep')) {
         $.validator.setDefaults({
             submitHandler: function () {
-                $("#err3").show();
+                $("#suc").show();
+                setTimeout(location.reload.bind(location), 900);
             }
         });
         $.validator.methods.equal = function (value, element, param) {
             return value == param;
         };
         $().ready(function () {
-            var validator = $("#addForm").bind("invalid-form.validate", function () {
-                $("#summary2").html("Your form contains "
-                    + validator.numberOfInvalids()
-                    + " errors, see details below.");
+            var validator = $("#signupForm").bind("invalid-form.validate", function () {
+                $("#summary").html("Your form contains " + validator.numberOfInvalids() + " errors, see details below.");
             }).validate({
                 debug: true,
                 errorElement: "em",
-                errorContainer: $("#warning, #summary2"),
+                errorContainer: $("#warning, #summary"),
                 errorPlacement: function (error, element) {
                     error.appendTo(element.parent("div").next("span"));
                 },
                 success: function (label) {
-                    label.text("").addClass("success");
-                    $("#err2").hide();
+                    $("#err5").hide();
                 },
                 rules: {
-                    fname: "required",
-
+                    name: "required",
+                    image: "required",
+                    job: "required",
+                    addr: "required",
+                    city: "required",
+                    zip: "required",
+                    country: "required",
                     email: {
                         required: true,
                         email: true
@@ -35,17 +38,48 @@ $(document).ready(function () {
                         required: true,
                         minlength: 10,
                         maxlength: 10,
+                    },
+                    username: {
+                        required: true,
+                        minlength: 2
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+                    con_password: {
+                        required: true,
+                        minlength: 5,
+                        equalTo: "#password"
                     }
                 },
                 messages: {
-                    fname: "Please enter your firstname",
-
+                    name: "Please enter your firstname",
                     email: "Please enter a valid email address",
-                    tel: "Please enter your telephone"
+                    tel: "Please enter your telephone",
+                    image: "Please enter your image",
+                    job: "Please enter your job",
+                    addr: "Please enter your address",
+                    city: "Please enter your city",
+                    zip: "Please enter your zip",
+                    country: "Please enter your country",
+                    username: {
+                        required: "Please enter a username",
+                        minlength: "Your username must consist of at least 2 characters"
+                    },
+                    password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long"
+                    },
+                    con_password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long",
+                        equalTo: "Please enter the same password as above"
+                    }
                 },
                 highlight: function (element) {
                     $(element).closest('.form-group').addClass('has-error');
-                    $("#err2").show();
+                    $("#err5").show();
                 },
                 unhighlight: function (element) {
                     $(element).closest('.form-group').removeClass('has-error');
@@ -62,35 +96,32 @@ $(document).ready(function () {
             });
         });
 
-        function validatePhone(tel) {
-            var a = document.getElementById(tel).value;
-            var filter = /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/;
-            if (filter.test(a)) {
-                return true;
-            } else {
-                return false;
+        $("#signup").click(function () {
+            if ($("#signupForm").valid()) {
+                var newuser2 = {};
+                newuser2.name = $('#name').val();
+                newuser2.image = $("#image").val();
+                newuser2.job = $('#job').val();
+                newuser2.addr = $('#addr').val();
+                newuser2.city = $('#city').val();
+                newuser2.zip = $('#zip').val();
+                newuser2.country = $('#country').val();
+                newuser2.tel = $('#tel').val();
+                newuser2.email = $('#email').val();
+                newuser2.username = $("#username").val();
+                newuser2.password = $('#password').val();
+                newuser2.con_password = $('#con_password').val();
+                newuser2.date = $('#date').val();
+                newuser2.status = $("#status:checked").val();
+                console.log(newuser2);
+                var urlss = "http://localhost:3000/authens";
+                $.post(urlss, newuser2, function (data, status) {
+                    console.log("Inserted " + data);
+                    $("#err5").show();
+                    //setTimeout(location.reload.bind(location), 900);
+                    //window.location.reload();
+                });
             }
-        };
-
-        $.urlParam = function (name) {
-            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-            return results[1] || 0;
-        }
-        $("#add").click(function () {
-            var newuser = {};
-            newuser.username = $("#username").val();
-            newuser.password = $("#password").val();
-            newuser.firstname = $("#fname").val();
-            newuser.lastname = $("#lname").val();
-            newuser.email = $("#email").val();
-            newuser.tel = $("#tel").val();
-            console.log(newuser);
-            var url = "http://members";
-            $.post(url, newuser, function (data, status) {
-                console.log("Added " + data);
-                $("#err").show();
-                setTimeout(location.reload.bind(location), 900);
-            });
         });
     } else {
         console.log('no cookie');
