@@ -25,7 +25,9 @@ $(document).ready(function() {
                     body += '<a href="signin.html" class="btn btn-primary">';
                     body += '<i class="fa  fa-heart-o" aria-hidden="true"></i> Quick view';
                     body += '</a></div>';
-                    $("#summary").append(body);
+                    if (info.id != 0 && info.username != "" && info.name != "") {
+                        $("#summary").append(body);
+                    }
                 });
             },
             error: function() {

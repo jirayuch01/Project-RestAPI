@@ -50,8 +50,8 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="memberAdmin.html">
-                                <i class="fa fa-user fa-fw"></i> User Profile</a>
+                            <a class="account" href="#">
+                                <i class="fa fa-user fa-fw"></i> My Profile</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -79,18 +79,19 @@
                                 <h1>Dating member</h1>
                             </div>
                             <div class="col-lg-2">
-                                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#add" data-whatever="@mdo">
                                     <i class="fa fa-plus"></i>
                                     Add new member</button>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-3" style="border:1px solid #999; overflow-y:hidden">
+                            <div class="col-lg-3" style="border:1px solid #999; height:564px;width:320px; overflow:scroll;overflow-x:hidden;overflow-y:scroll;">
                                 <h3>Search members</h3>
                                 <p>
                                     <b>Last Profiles
-                                        <kbd style="background-color: pink; color: red">
-                                            <span id="conunt"></span></kbd> Found</b>
+                                        <kbd style="font-size: 18px; background-color: pink; color: red">
+                                            <span id="conunt"></span>
+                                        </kbd> Found</b>
                                 </p>
                                 <br>
                                 <div class="input-group custom-search-form">
@@ -115,74 +116,82 @@
                                     <fieldset>
                                         <legend>Member Detail</legend>
                                         <div class="col-lg-3">
-                                            <span class="pic2"></span><br><br>
+                                            <span class="pic2"></span>
+                                            <br>
+                                            <br>
                                             <center>
-                                            <span><a href="https://imgbb.com/" target="_blank">click to upload image online.</a></span>
+                                                <span>
+                                                    <a href="https://imgbb.com/" target="_blank">click to upload image online.</a>
+                                                </span>
                                             </center>
                                         </div>
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <label for="name" class="col-lg-3 control-label">Full Name</label>
                                                 <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="name" name="name" model="currentCustomer.FullName" disabled>
+                                                    <input type="text" class="form-control name" name="name" disabled>
                                                 </div>
                                                 <div class="col-lg-1">
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
-                                                        Edit</button>
+                                                    <button type="button" class="btn btn-primary edit" data-toggle="modal" data-target="#edit" data-whatever="@mdo">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="pic3" class="col-lg-3 control-label">Image</label>
                                                 <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="pic3" name="pic3" model="currentCustomer.Address" disabled>
+                                                    <input type="text" class="form-control pic3" name="pic3" disabled>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo">
+                                                        <i class="fa fa-trash"></i> Delete</button>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="job" class="col-lg-3 control-label">Job</label>
                                                 <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="job" name="job" model="currentCustomer.Address" disabled>
+                                                    <input type="text" class="form-control job" name="job" disabled>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="addr" class="col-lg-3 control-label">Address</label>
                                                 <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="addr" name="addr" model="currentCustomer.Address" disabled>
+                                                    <input type="text" class="form-control addr" name="addr" disabled>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="city" class="col-lg-3 control-label">City</label>
                                                 <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="city" name="city" model="currentCustomer.City" disabled>
+                                                    <input type="text" class="form-control city" name="city" disabled>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="zip" class="col-lg-3 control-label">Zip Code</label>
                                                 <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="zip" name="zip" model="currentCustomer.ZipCode" disabled>
+                                                    <input type="text" class="form-control zip" name="zip" disabled>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="country" class="col-lg-3 control-label">Country</label>
                                                 <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="country" name="country" model="currentCustomer.Country" disabled>
+                                                    <input type="text" class="form-control country" name="country" disabled>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="tel" class="col-lg-3 control-label">Telephone number</label>
                                                 <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="tel" name="tel" model="currentCustomer.Address" disabled>
+                                                    <input type="text" class="form-control tel" name="tel" disabled>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="email" class="col-lg-3 control-label">E-mail</label>
                                                 <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="email" name="email" model="currentCustomer.Address" disabled>
+                                                    <input type="text" class="form-control email" name="email" disabled>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="date" class="col-lg-3 control-label">Update data</label>
                                                 <div class="col-lg-8">
-                                                    <input type="text" class="form-control" id="date" name="date" model="currentCustomer.Address" disabled>
+                                                    <input type="text" class="form-control date" name="date" disabled>
                                                 </div>
                                                 <input id="canvas" type="hidden">
                                             </div>
@@ -204,7 +213,6 @@
         var geocoder;
         var map;
         function initialize() {
-            // add mapOptions here to the values in the input boxes.
             var mapOptions = {
                 center: new google.maps.LatLng(-34.397, 100.644),
                 zoom: 15,
@@ -243,69 +251,139 @@
     </footer>
 
     <!-- add -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <div class="modal-header" style="background-color: greenyellow">
+                    <h4 class="modal-title" id="exampleModalLabel">
+                        <kbd style="font-size: 18px; background-color: black; color: red">
+                            <i class="fa fa-plus"></i>
+                        </kbd>
+                        <b>Add new member</b>
+                        <div id="err3" style="display:none" class="alert alert-success alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+                            <strong>Add Successful!!!</strong>
+                        </div>
+                        <div id="err2" style="display:none" class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+                            <strong>Incorrect!!! : </strong>
+                            <span style="color:blue;font-weight:bold" id="summary2">
+                                Your form contains tons of errors! Please try again.</span>
+                        </div>
+                    </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="addForm" method="POST" role="form">
                         <div class="form-group">
-                            <label for="recipient-name" class="form-control-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="form-control-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Full Name</label>
+                            <label for="a_name" class="col-lg-3 control-label">Full Name</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.FullName" ng-required="true">
+                                <input type="text" class="form-control" id="a_name" name="a_name" placeholder="Put a Full Name here.">
+                                <span></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Address</label>
+                            <label for="a_image" class="col-lg-3 control-label">Image</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.Address" ng-required="true">
+                                <input type="text" class="form-control" id="a_image" name="a_image" placeholder="Put a Image here.">
+                                <span></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">City</label>
+                            <label for="a_job" class="col-lg-3 control-label">Job</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.City" ng-required="true">
+                                <input type="text" class="form-control" id="a_job" name="a_job" placeholder="Put a Job here.">
+                                <span></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Country</label>
+                            <label for="a_addr" class="col-lg-3 control-label">Address</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.Country" ng-required="true">
+                                <input type="text" class="form-control" id="a_addr" name="a_addr" placeholder="Put a Address here.">
+                                <span></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Zip Code</label>
+                            <label for="a_city" class="col-lg-3 control-label">City</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.ZipCode" ng-required="true">
+                                <input type="text" class="form-control" id="a_city" name="a_city" placeholder="Put a City here.">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="a_zip" class="col-lg-3 control-label">Zip Code</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="a_zip" name="a_zip" placeholder="Put a Zip Code here.">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="a_country" class="col-lg-3 control-label">Country</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="a_country" name="a_country" placeholder="Put a Country here.">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="a_tel" class="col-lg-3 control-label">Telephone</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="a_tel" name="a_tel" placeholder="Put a Telephone here.">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="a_mail" class="col-lg-3 control-label">E-mail</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="a_mail" name="a_mail" placeholder="Put an E-mail here.">
+                                <span></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="a_username" class="col-lg-3 control-label">Username</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="a_username" name="a_username" placeholder="Put an Username here.">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-lg-3 control-label">Password</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="a_pass" name="a_pass" placeholder="Put a Password here.">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-lg-3 control-label">Confirm pass</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="a_con-pass" name="a_con-pass" placeholder="Put a Confirm pass here.">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-lg-3 control-label">Status</label>
+                            <div class="col-lg-8">
+                                <p></p>
+                                <input type="radio" id="a_status" name="a_status" value="admin"> admin
+                                <br>
+                                <input type="radio" id="a_status" name="a_status" value="user" checked> user
+                                <br>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="a_date" class="col-lg-3 control-label">Date</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="a_date" name="a_date" readonly>
                             </div>
                         </div>
                     </form>
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
+                    <button type="button" class="btn btn-success" id="add">Save</button>
                 </div>
             </div>
         </div>
@@ -315,29 +393,74 @@
     <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <div class="modal-header" style="background-color: #ff3399">
+                    <h4 class="modal-title" id="exampleModalLabel">
+                        <kbd style="font-size: 18px; background-color: black; color: red">
+                            <i class="fa fa-plus"></i>
+                        </kbd>
+                        <b>Delete member</b>
+                    </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <h1>Do you want to delete "
+                        <span style="color: #ff3399" class="d_name"></span>" ?</h1>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-danger" id="del">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- delete -->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #ff3399">
+                    <h4 class="modal-title" id="exampleModalLabel">
+                        <kbd style="font-size: 18px; background-color: black; color: red">
+                            <i class="fa fa-plus"></i>
+                        </kbd>
+                        <b>Delete member</b>
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h1>Do you want to delete "
+                        <span style="color: #ff3399" class="d_name"></span>" ?</h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-danger" id="del">Yes</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- edit -->
-    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <div class="modal-header" style="background-color: aqua">
+                    <h4 class="modal-title" id="exampleModalLabel">
+                        <kbd style="font-size: 18px; background-color: black; color: red">
+                            <i class="fa fa-plus"></i>
+                        </kbd>
+                        <b>Edit member</b>
+                        <br>
+                        <span class="contain"></span>
+
+                        <div id="err" style="display:none" class="alert alert-success alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+                            <strong>Update Successful!!!</strong>
+                        </div>
+                    </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -345,57 +468,99 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="recipient-name" class="form-control-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="form-control-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Full Name</label>
+                            <label for="e_name" class="col-lg-3 control-label">Full Name</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.FullName" ng-required="true">
+                                <input type="text" class="form-control" id="e_name" name="e_name" autofocus>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Address</label>
+                            <label for="e_image" class="col-lg-3 control-label">Image</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.Address" ng-required="true">
+                                <input type="text" class="form-control" id="e_image" name="e_image">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">City</label>
+                            <label for="e_job" class="col-lg-3 control-label">Job</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.City" ng-required="true">
+                                <input type="text" class="form-control" id="e_job" name="e_job">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Country</label>
+                            <label for="e_addr" class="col-lg-3 control-label">Address</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.Country" ng-required="true">
+                                <input type="text" class="form-control" id="e_addr" name="e_addr">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Zip Code</label>
+                            <label for="e_city" class="col-lg-3 control-label">City</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.ZipCode" ng-required="true">
+                                <input type="text" class="form-control" id="e_city" name="e_city">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_zip" class="col-lg-3 control-label">Zip Code</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="e_zip" name="e_zip">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_country" class="col-lg-3 control-label">Country</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="e_country" name="e_country">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_tel" class="col-lg-3 control-label">Telephone</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="e_tel" name="e_tel">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_mail" class="col-lg-3 control-label">E-mail</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="e_mail" name="e_mail">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_username" class="col-lg-3 control-label">Username</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="e_username" name="e_username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_pass" class="col-lg-3 control-label">Password</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="e_pass" name="e_pass">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_con-pass" class="col-lg-3 control-label">Confirm pass</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="e_con-pass" name="e_con-pass">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_status" class="col-lg-3 control-label">Status</label>
+                            <div class="col-lg-8">
+                                <p></p>
+                                <input type="radio" id="e_status" name="e_status" value="admin"> admin
+                                <br>
+                                <input type="radio" id="e_status" name="e_status" value="user"> user
+                                <br>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_date" class="col-lg-3 control-label">Date</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="e_date" name="e_date" readonly>
                             </div>
                         </div>
                     </form>
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
+                    <button type="button" class="btn btn-primary" id="save">Edit</button>
                 </div>
             </div>
         </div>
@@ -405,24 +570,12 @@
     <script src="vendor/bootstrap/js/bootstrap2.min.js"></script>
     <script src="vendor/metisMenu/metisMenu.min.js"></script>
     <script src="dist/js/sb-admin-2.js"></script>
-    <script>
-        //add
-        $('#exampleModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var recipient = button.data('whatever') // Extract info from data-* attributes
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            modal.find('.modal-title').text('New message to ' + recipient)
-            modal.find('.modal-body input').val(recipient)
-        })
-    </script>
-
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="new/admin.js"></script>
+    <script type="text/javascript" src="new/admin2.js"></script>
     <script type="text/javascript" src="js/jquery.cookie.js"></script>
     <script type="text/javascript">
         console.log($.cookie('keep'));
-
         function deleteCookie() {
             $.removeCookie('keep');
             console.log($.removeCookie('keep'));
