@@ -27,7 +27,7 @@ $(document).ready(function () {
                         body += '<div style="font-weight:bold;">';
                         body += '<a style="cursor:pointer">' + info.name + '</a>';
                         body += '<span class="pull-right" title="Delete customer">';
-                        body += '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2">';
+                        body += '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del2">';
                         body += '<i class="fa fa-trash"></i>';
                         body += '</button>';
                         body += '</span>';
@@ -35,7 +35,6 @@ $(document).ready(function () {
                         body += '<div>' + info.addr + " " + info.city + " " + info.zip + " " + info.country + '</div>';
                         body += '</div>';
                         body += '</div>';
-                        body
                         if (info.id != 0 && info.username != "" && info.name != "") {
                             $("#summary").append(body);
                         }

@@ -95,9 +95,9 @@
                 </p>
                 <br>
                 <div class="input-group custom-search-form">
-                  <input type="text" class="form-control" placeholder="Search...">
+                  <input type="text" class="form-control" placeholder="Search first name only..." id="find">
                   <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">
+                    <button class="btn btn-default" type="submit" id="search">
                       <i class="fa fa-search"></i>
                     </button>
                   </span>
@@ -142,7 +142,7 @@
                           <input type="text" class="form-control pic3" name="pic3" disabled>
                         </div>
                         <div class="col-lg-1">
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo">
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del1" data-whatever="@mdo">
                             <i class="fa fa-trash"></i> Delete</button>
                         </div>
                       </div>
@@ -264,7 +264,6 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-
         <div class="modal-body">
           <form id="signupForm" action="" method="POST" role="form">
             <div id="suc" style="display:none" class="alert alert-success alert-dismissable">
@@ -272,30 +271,7 @@
               <button type="button" class="close" data-dismiss="alert">×</button>
             </div>
             <div class="form-group">
-              <label for="username" class="col-lg-3 control-label">Username</label>
-              <div class="col-lg-8">
-                <input class="form-control" type="text" name="username" id="username" placeholder="Username has max length to 12" maxlength="12"
-                  autofocus>
-                <span></span>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="password" class="col-lg-3 control-label">Password</label>
-              <div class="col-lg-8">
-                <input class="form-control" type="password" name="password" id="password" placeholder="Password has max length to 12" maxlength="12">
-                <span></span>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="con_password" class="col-lg-3 control-label">Confirm pass</label>
-              <div class="col-lg-8">
-                <input class="form-control" type="password" name="con_password" id="con_password" placeholder="Password has max length to 12"
-                  maxlength="12">
-                <span></span>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="name" class="col-lg-3 control-label">Confirm pass</label>
+              <label for="name" class="col-lg-3 control-label">Full Name</label>
               <div class="col-lg-8">
                 <input class="form-control" type="text" name="name" id="name" placeholder="Password has max length to 12" maxlength="12">
                 <span></span>
@@ -358,6 +334,29 @@
               </div>
             </div>
             <div class="form-group">
+              <label for="username" class="col-lg-3 control-label">Username</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" name="username" id="username" placeholder="Username has max length to 12" maxlength="12"
+                  autofocus>
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="col-lg-3 control-label">Password</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="password" name="password" id="password" placeholder="Password has max length to 12" maxlength="12">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="con_password" class="col-lg-3 control-label">Confirm pass</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="password" name="con_password" id="con_password" placeholder="Password has max length to 12"
+                  maxlength="12">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
               <label for="a_date" class="col-lg-3 control-label">Date</label>
               <div class="col-lg-8">
                 <input type="text" class="form-control" id="a_date" name="a_date" readonly>
@@ -373,21 +372,27 @@
                 <br>
                 <p></p>
               </div>
-              <br>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-success" id="signup">Add</button>
-              </div>
+            </div>
+            <br>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-success" id="signup">Add</button>
+            </div>
           </form>
-          </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
+
+
+
+
+
 
 
   <!-- delete -->
-  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="del2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header" style="background-color: #ff3399">
@@ -404,17 +409,31 @@
         <div class="modal-body">
           <h1>Do you want to delete "
             <span style="color: #ff3399" class="d_name"></span>" ?</h1>
+          <!--  -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-          <button type="button" class="btn btn-danger" id="del">Yes</button>
+          <button type="button" class="btn btn-danger" id="dellist">Yes</button>
         </div>
       </div>
     </div>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- delete -->
-  <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="del1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header" style="background-color: #ff3399">
@@ -569,8 +588,9 @@
   <script src="vendor/metisMenu/metisMenu.min.js"></script>
   <script src="dist/js/sb-admin-2.js"></script>
   <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-  <script type="text/javascript" src="new/admin.js"></script>
+  <script type="text/javascript" src="new/admin0.js"></script>
   <script type="text/javascript" src="new/admin2.js"></script>
+  <script type="text/javascript" src="new/search.js"></script>
   <script type="text/javascript" src="js/jquery.cookie.js"></script>
   <script type="text/javascript">
     console.log($.cookie('keep'));
