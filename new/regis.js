@@ -140,6 +140,16 @@ $(document).ready(function () {
                 $('#password').val(inf[0].password);
                 $('#con_password').val(inf[0].con_password);
                 $('#status').val(inf[0].status);
+                $('#fname').val(inf[0].fname);
+                $('#lname').val(inf[0].lname);
+                $("#image").val(inf[0].image);
+                $('#job').val(inf[0].job);
+                $('#addr').val(inf[0].addr);
+                $('#city').val(inf[0].city);
+                $('#zip').val(inf[0].zip);
+                $('#country').val(inf[0].country);
+                $('#tel').val(inf[0].tel);
+                $('#email').val(inf[0].email);               
                 $(".signup__link").click(function () {
                     var id = $.urlParam('id');
                     setTimeout(window.location.href = "memberUser.html?id=" + id, 1000);
