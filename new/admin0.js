@@ -5,46 +5,11 @@ $(document).ready(function () {
             url: 'http://localhost:3000/authens/',
             mimeType: 'json',
             success: function (inf) {
-                var ArrayContent = inf.length;
+                var ArrayContent = inf.length - 1;
                 document.getElementById("conunt").innerHTML = ArrayContent;
             }
         });
 
-        var url = "http://localhost:3000/authens/";
-        $.get(url, function (data, status) {
-            $.ajax({
-                type: 'GET',
-                url: 'http://localhost:3000/authens/',
-                mimeType: 'json',
-                success: function (info) {
-                    $.each(info.reverse(), function (i, info) {
-                        var body = '<hr class="style5">';
-                        body += '<div class="row">';
-                        body += '<div class="col-lg-2">';
-                        body += '<img src="' + info.image + '" class="img-circle" style="max-width:50px">';
-                        body += '</div>';
-                        body += '<div class="col-lg-10">';
-                        body += '<div style="font-weight:bold;">';
-                        body += '<a style="cursor:pointer">' + info.name + '</a>';
-                        body += '<span class="pull-right" title="Delete customer">';
-                        body += '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del2">';
-                        body += '<i class="fa fa-trash"></i>';
-                        body += '</button>';
-                        body += '</span>';
-                        body += '</div>';
-                        body += '<div>' + info.addr + " " + info.city + " " + info.zip + " " + info.country + '</div>';
-                        body += '</div>';
-                        body += '</div>';
-                        if (info.id != 0 && info.username != "" && info.name != "") {
-                            $("#summary").append(body);
-                        }
-                    });
-                },
-                error: function () {
-                    //alert('Fail!');
-                }
-            });
-        });
         $.urlParam = function (name) {
             var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
             return results[1] || 0;
@@ -72,8 +37,8 @@ $(document).ready(function () {
                 $(".pic").append(body);
                 var body2 = '<br><br><img style="width:260px" class="img-circle" src="' + inf[0].image + '">';
                 $(".pic2").append(body2);
-                $('.name').html(inf[0].name);
-                $('.name').val(inf[0].name);
+                $('.name').html(inf[0].fname + " " + inf[0].lname);
+                $('.name').val(inf[0].fname + " " + inf[0].lname);
                 $(".pic3").val(inf[0].image);
                 $('.job').val(inf[0].job);
                 $('.addr').val(inf[0].addr);
@@ -88,7 +53,8 @@ $(document).ready(function () {
                     + "," + inf[0].country
                 );
                 $('.account').attr('href', "memberAdmin.html?id=" + inf[0].id);
-                $('#e_name').val(inf[0].name);
+                $('#e_fname').val(inf[0].fname);
+                $('#e_lname').val(inf[0].lname);
                 $("#e_image").val(inf[0].image);
                 $('#e_job').val(inf[0].job);
                 $('#e_addr').val(inf[0].addr);
@@ -150,16 +116,22 @@ $(document).ready(function () {
                     var strTime = hours + ':' + minutes + ' ' + ampm;
                     return strTime;
                 }
+
+                // var moment = require('moment');
+                // var date = moment();
+                // console.log(date.format('LLLL'));
+                
                 var strDateTime1 = getFormattedDate();
                 $('#e_date').val(strDateTime1);
                 $('#a_date').val(strDateTime1);
                 $('#e_username').val(inf[0].username);
                 $('#e_pass').val(inf[0].password);
                 $('#e_con-pass').val(inf[0].con_password);
-                $('.d_name').html(inf[0].name);
+                $('.d_name').html(inf[0].fname  + " " + inf[0].lname);
                 $("#save").click(function () {
                     var newuser = {};
-                    newuser.name = $('#e_name').val();
+                    newuser.fname = $('#e_fname').val();
+                    newuser.lname = $('#e_lname').val();
                     newuser.image = $("#e_image").val();
                     newuser.job = $('#e_job').val();
                     newuser.addr = $('#e_addr').val();
@@ -188,7 +160,8 @@ $(document).ready(function () {
                 });
                 $("#save").click(function () {
                     var newuser = {};
-                    newuser.name = $('#e_name').val();
+                    newuser.fname = $('#e_fname').val();
+                    newuser.lname = $('#e_lname').val();
                     newuser.image = $("#e_image").val();
                     newuser.job = $('#e_job').val();
                     newuser.addr = $('#e_addr').val();

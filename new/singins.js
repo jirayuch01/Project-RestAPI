@@ -76,7 +76,7 @@ $("#signin").click(function () {
                 console.log("user");
                 $("#suc").show();
                 console.log(data[0].id);
-                setTimeout(window.location.href = "memberUser.html?id=" + data[0].id, 30000);
+                setTimeout(window.location.href = "register.html?id=" + data[0].id, 30000);
             }
         }
     });

@@ -36,29 +36,15 @@
 <body onload="initialize()">
   <div id="wrapper">
     <nav class="navbar navbar-inverse bg-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="index.html" style="color: #ff3399;">
         <kbd style="background-color: pink; color: red">♥</kbd> Heart</a>
       <ul class="nav navbar-top-links navbar-right">
         <li>
-          <a href="contact.html">Contact</a>
+          <a href="contact.html" style="color: #ff3399;">Contact</a>
         </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <span class="pic"></span>
-            <span class="username"></span>
-            <i class="fa fa-caret-down"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-user">
-            <li>
-              <a class="account" href="#">
-                <i class="fa fa-user fa-fw"></i> My Profile</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="home.html" onclick="deleteCookie()">
-                <i class="fa fa-sign-out fa-fw"></i> Logout</a>
-            </li>
-          </ul>
+        <li>
+          <a href="home.html" onclick="deleteCookie()" style="color: #ff3399;">
+            <i class="fa fa-sign-out fa-fw"></i> Logout</a>
         </li>
       </ul>
     </nav>
@@ -67,16 +53,16 @@
         <div class="row">
           <div class="col-lg-12">
             <center>
-              <h1 class="page-header">Welcome "
-                <span style="color: #ff3399;" class="name"></span>"
-                <br>to
-                <i>Dating Site</i>
+              <h1 class="page-header">Welcome to "
+                <span style="color: #ff3399;">
+                  <i>Dating Site</i>
+                </span>"
               </h1>
             </center>
             <br>
             <div class="row">
               <div class="col-lg-10">
-                <h1>Dating member</h1>
+                <h1>Dating members</h1>
               </div>
               <div class="col-lg-2">
                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#add" data-whatever="@mdo">
@@ -88,10 +74,7 @@
               <div class="col-lg-3" style="border:1px solid #999; height:564px;width:320px; overflow:scroll;overflow-x:hidden;overflow-y:scroll;">
                 <h3>Search members</h3>
                 <p>
-                  <b>Last Profiles
-                    <kbd style="font-size: 18px; background-color: pink; color: red">
-                      <span id="conunt"></span>
-                    </kbd> Found</b>
+                  <b>Last Profiles <kbd style="font-size: 18px; background-color: pink; color: red"><span id="conunt"></span></kbd> Found</b>
                 </p>
                 <br>
                 <div class="input-group custom-search-form">
@@ -271,9 +254,16 @@
               <button type="button" class="close" data-dismiss="alert">×</button>
             </div>
             <div class="form-group">
-              <label for="name" class="col-lg-3 control-label">Full Name</label>
+              <label for="fname" class="col-lg-3 control-label">First Name</label>
               <div class="col-lg-8">
-                <input class="form-control" type="text" name="name" id="name" placeholder="Password has max length to 12" maxlength="12">
+                <input class="form-control" type="text" name="fname" id="fname" placeholder="Put a First Name here.">
+                <span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lname" class="col-lg-3 control-label">Last Name</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" name="lname" id="lname" placeholder="Put a Last Name here.">
                 <span></span>
               </div>
             </div>
@@ -308,7 +298,7 @@
             <div class="form-group">
               <label for="zip" class="col-lg-3 control-label">Zip Code</label>
               <div class="col-lg-8">
-                <input type="text" class="form-control" id="zip" name="zip" placeholder="Put a Zip Code here.">
+                <input type="text" class="form-control" id="zip" name="zip" placeholder="Put an Zip Code here.">
                 <span></span>
               </div>
             </div>
@@ -383,54 +373,6 @@
       </div>
     </div>
   </div>
-  </div>
-
-
-
-
-
-
-
-  <!-- delete -->
-  <div class="modal fade" id="del2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header" style="background-color: #ff3399">
-          <h4 class="modal-title" id="exampleModalLabel">
-            <kbd style="font-size: 18px; background-color: black; color: red">
-              <i class="fa fa-plus"></i>
-            </kbd>
-            <b>Delete member</b>
-          </h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <h1>Do you want to delete "
-            <span style="color: #ff3399" class="d_name"></span>" ?</h1>
-          <!--  -->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-          <button type="button" class="btn btn-danger" id="dellist">Yes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <!-- delete -->
   <div class="modal fade" id="del1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -484,9 +426,15 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="e_name" class="col-lg-3 control-label">Full Name</label>
+              <label for="e_fname" class="col-lg-3 control-label">First Name</label>
               <div class="col-lg-8">
-                <input type="text" class="form-control" id="e_name" name="e_name" autofocus>
+                <input type="text" class="form-control" id="e_fname" name="e_fname" autofocus>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_lname" class="col-lg-3 control-label">Last Name</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="e_lname" name="e_lname" autofocus>
               </div>
             </div>
             <div class="form-group">
@@ -591,6 +539,8 @@
   <script type="text/javascript" src="new/admin0.js"></script>
   <script type="text/javascript" src="new/admin2.js"></script>
   <script type="text/javascript" src="new/search.js"></script>
+  <script type="text/javascript" src="new/user.js"></script>
+  <script type="text/javascript" src="js/moment.js"></script>
   <script type="text/javascript" src="js/jquery.cookie.js"></script>
   <script type="text/javascript">
     console.log($.cookie('keep'));

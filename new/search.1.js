@@ -48,11 +48,11 @@ $(document).ready(function () {
                     results += '</div>';
                     results += '<div class="col-lg-10">';
                     results += '<div style="font-weight:bold;">';
-                    results += '&nbsp;&nbsp;<a style="cursor:pointer" href="memberAdmin.html?id=' + data[index].id + '">'
-                    + data[index].fname + data[index].lname +'</a>';
+                    results += '&nbsp;&nbsp;<a style="cursor:pointer" href="memberUser.html?id=' + data[index].id + '">'
+                    + data[index].fname + data[index].lname + '</a>';
                     results += '<span class="pull-right" title="Delete customer">';
                     results += '<br>';
-                    results += '<a class="btn btn-xs btn-warning" href="memberAdmin.html?id=' + data[index].id + '">';
+                    results += '<a class="btn btn-xs btn-warning" href="memberUser.html?id=' + data[index].id + '">';
                     results += '<i class="fa fa-eye" style="color: black"></i>';
                     results += '</a>';
                     results += '</span>';

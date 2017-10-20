@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="image/favicon.ico">
     <link rel="shortcut icon" type="image/ico" href="image/favicon.ico">
-    <title>Heart | Admin</title>
+    <title>Heart | Member</title>
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap2.min.css">
     <link rel="stylesheet" href="vendor/metisMenu/metisMenu.min.css">
     <link rel="stylesheet" href="dist/css/sb-admin-2.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/cursor.css">
+    <link rel="stylesheet" href="css/image.css">
     <style>
         hr.style5 {
             background-color: #fff;
@@ -22,35 +23,29 @@
         body {
             background: black;
         }
+
+        html,
+        body,
+        #map-canvas {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
     </style>
 </head>
 
-<body>
+<body onload="initialize()">
     <div id="wrapper">
         <nav class="navbar navbar-inverse bg-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <a class="navbar-brand" href="index.html">
-                    <kbd style="background-color: pink; color: red">♥</kbd> Heart</a>
+            <a class="navbar-brand" href="index.html" style="color: #ff3399;">
+                <kbd style="background-color: pink; color: red">♥</kbd> Heart</a>
             <ul class="nav navbar-top-links navbar-right">
-                    <li>
-                            <a href="contact.html">Contact</a>
-                          </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span class="pic"></span>
-                            <span class="username"></span>
-                        <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li>
-                            <a href="memberAdmin.html">
-                                <i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="home.html">
-                                <i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
+                <li>
+                    <a href="contact.html" style="color: #ff3399;">Contact</a>
+                </li>
+                <li>
+                    <a href="home.html" onclick="deleteCookie()" style="color: #ff3399;">
+                        <i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
         </nav>
@@ -59,150 +54,138 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <center>
-                            <h1 class="page-header">Welcome "<span style="color: #ff3399;" class="name"></span>" 
-                                <br>to
-                                <i>Dating Site</i>
+                            <h1 class="page-header">Welcome to "
+                                <span style="color: #ff3399;">
+                                    <i>Dating Site</i>
+                                </span>"
                             </h1>
                         </center>
                         <br>
                         <div class="row">
-                            <div class="col-lg-10">
-                                <h1>Dating member</h1>
-                            </div>
-                            <div class="col-lg-2">
-                                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
-                                    <i class="fa fa-plus"></i>
-                                    Add new member</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-3" style="border:1px solid #999; overflow-y:hidden">
-                                <h3>Search members</h3>
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                                <hr class="style5">
-                                <br>
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <img src="image/pro.png" class="img-circle" style="max-width:50px" alt='customer image'>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <div style="font-weight:bold;">
-                                            <a style="cursor:pointer">Jirayu Chinnawong</a>
-                                            <span class="pull-right" title="Delete customer">
-                                                <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </span>
-                                        </div>
-                                        <div>75/2 Phuket 83000</div>
-                                    </div>
-                                </div>
-                                <hr class="style5">
-                                <div class="col-lg-12 customer-row animate" repeat="customer in customers">
-                                    <as-customer></as-customer>
-                                </div>
-                            </div>
-                            <div class="col-lg-9" style="border:1px solid #999; overflow-y:auto">
-                                <div ui-view>
-                                    <div class="form-horizontal">
-                                        <br>
-                                        <fieldset>
-                                            <legend>Member Detail</legend>
-                                            <div class="col-lg-3">
-                                                <span class="pic2"></span>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="form-group">
-                                                    <label for="name" class="col-lg-3 control-label">Full Name</label>
-                                                    <div class="col-lg-8">
-                                                        <input type="text" class="form-control" id="name" name="name" 
-                                                        model="currentCustomer.FullName" disabled>
+                            <div class="content-wrapper">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <br>
+                                                    <br>
+                                                    <div class="polaroid" style=" border-radius: 18px;">
+                                                        <img src="image/unkonw.jpg" alt="Norway" style="width:100%">
                                                     </div>
-                                                    <div class="col-lg-1">
-                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
-                                                            Edit</button>
-                                                    </div>
+                                                    <br>
+                                                    <br>
+                                                    <center>
+                                                        <a href="https://imgbb.com/" target="_blank">click to upload image online.</a>
+                                                    </center>
                                                 </div>
-                                                <div class="form-group">
-                                                        <label for="pic3" class="col-lg-3 control-label">Image</label>
-                                                        <div class="col-lg-8">
-                                                            <input type="text" class="form-control"  id="pic3" name="pic3" 
-                                                            model="currentCustomer.Address" disabled>
+                                                <br>
+                                                <div class="col-md-9">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">
+                                                            <h4>Please fill in information about yourself.</h4>
                                                         </div>
-                                                    </div>
-                                                <div class="form-group">
-                                                    <label for="job" class="col-lg-3 control-label">Job</label>
-                                                    <div class="col-lg-8">
-                                                        <input type="text" class="form-control"  id="job" name="job" 
-                                                        model="currentCustomer.Address" disabled>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                        <label for="address" class="col-lg-3 control-label">Address</label>
-                                                        <div class="col-lg-8">
-                                                            <input type="text" class="form-control"  id="address" name="address" 
-                                                            model="currentCustomer.Address" disabled>
-                                                        </div>
-                                                    </div>
-
-                                                <div class="form-group">
-                                                    <label for="city" class="col-lg-3 control-label">City</label>
-                                                    <div class="col-lg-8">
-                                                        <input type="text" class="form-control" id="city" name="city" 
-                                                         model="currentCustomer.City" disabled>
-                                                    </div>
-                                                </div>                                               
-                                                 <div class="form-group">
-                                                    <label for="zip" class="col-lg-3 control-label">Zip Code</label>
-                                                    <div class="col-lg-8">
-                                                        <input type="text" class="form-control"  id="zip" name="zip" 
-                                                        model="currentCustomer.ZipCode" disabled>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="country" class="col-lg-3 control-label">Country</label>
-                                                    <div class="col-lg-8">
-                                                        <input type="text" class="form-control"  id="country" name="country" 
-                                                        model="currentCustomer.Country" disabled>
-                                                    </div>
-                                                </div>
-                                                    <div class="form-group">
-                                                            <label for="tel" class="col-lg-3 control-label">Telephone number</label>
-                                                            <div class="col-lg-8">
-                                                                <input type="text" class="form-control"  id="tel" name="tel" 
-                                                                model="currentCustomer.Address" disabled>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                                <label for="email" class="col-lg-3 control-label">E-mail</label>
-                                                                <div class="col-lg-8">
-                                                                    <input type="text" class="form-control"  id="email" name="email" 
-                                                                    model="currentCustomer.Address" disabled>
+                                                        <div class="panel-body">
+                                                            <form id="signupForm" action="" method="POST" role="form">
+                                                                <div id="suc" style="display:none" class="alert alert-success alert-dismissable">
+                                                                    <strong>Register Successful!!!</strong>
+                                                                    <button type="button" class="close" data-dismiss="alert">×</button>
                                                                 </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                    <label for="date" class="col-lg-3 control-label">Update data</label>
+                                                                <input class="form-control" type="hidden" name="id" id="id">
+                                                                <input class="form-control" type="hidden" name="username" id="username">
+                                                                <input class="form-control" type="hidden" name="password" id="password">
+                                                                <input class="form-control" type="hidden" name="con_password" id="con_password">
+                                                                <input class="form-control" type="hidden" name="status" id="status">
+                                                                <div class="form-group">
+                                                                    <label for="fname" class="col-lg-3 control-label">First Name</label>
                                                                     <div class="col-lg-8">
-                                                                        <input type="text" class="form-control"  id="date" name="date" 
-                                                                        model="currentCustomer.Address" disabled>
+                                                                        <input class="form-control" type="text" name="fname" id="fname" placeholder="Put a First Name here.">
+                                                                        <span></span>
                                                                     </div>
                                                                 </div>
+                                                                <div class="form-group">
+                                                                    <label for="lname" class="col-lg-3 control-label">Last Name</label>
+                                                                    <div class="col-lg-8">
+                                                                        <input class="form-control" type="text" name="lname" id="lname" placeholder="Put a Last Name here.">
+                                                                        <span></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="image" class="col-lg-3 control-label">Image</label>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control" id="image" name="image" placeholder="Put a Image here.">
+                                                                        <span></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="job" class="col-lg-3 control-label">Job</label>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control" id="job" name="job" placeholder="Put a Job here.">
+                                                                        <span></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="addr" class="col-lg-3 control-label">Address</label>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control" id="addr" name="addr" placeholder="Put a Address here.">
+                                                                        <span></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="city" class="col-lg-3 control-label">City</label>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control" id="city" name="city" placeholder="Put a City here.">
+                                                                        <span></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="zip" class="col-lg-3 control-label">Zip Code</label>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control" id="zip" name="zip" placeholder="Put an Zip Code here.">
+                                                                        <span></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="country" class="col-lg-3 control-label">Country</label>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control" id="country" name="country" placeholder="Put a Country here.">
+                                                                        <span></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="tel" class="col-lg-3 control-label">Telephone</label>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control" id="tel" name="tel" placeholder="Put a Telephone here." maxlength="10">
+                                                                        <span></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="email" class="col-lg-3 control-label">E-mail</label>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control" id="email" name="email" placeholder="Put an E-mail here.">
+                                                                        <span></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="a_date" class="col-lg-3 control-label">Date</label>
+                                                                    <div class="col-lg-8">
+                                                                        <input type="text" class="form-control" id="a_date" name="a_date" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-8 col-sm-offset-3">
+                                                                    <br>
+                                                                    <button type="submit" name="button" id="signup" class="back btn btn-primary">Ok</button>
+                                                                    &nbsp; &nbsp;
+                                                                    <a class="signup__link" style="color: black">Skip, I have complete information.
+                                                                        .</a>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="panel-footer panel-heading"></div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </fieldset>AIzaSyDfyFvZCww-rijl6cbmrZU_OTmY3xVKleI
-                                        <br>
-                                        <center>
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.002871464434!2d98.34988941267238!3d7.894767007898271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3050303528303419%3A0x43ed556e96eb7eb8!2sFaculty+of+Technology+and+Environment!5e0!3m2!1sen!2sth!4v1508085336951"
-                                                width="900" height="270" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                        </center>
-                                        <br>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -212,6 +195,7 @@
             </div>
         </div>
     </div>
+
     <footer class="py-5 bg-dark">
         <div class="container">
             <br>
@@ -225,199 +209,22 @@
         </div>
     </footer>
 
-
-
-    <!-- add -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="form-control-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="form-control-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Full Name</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.FullName" ng-required="true">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Address</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.Address" ng-required="true">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">City</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.City" ng-required="true">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Country</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.Country" ng-required="true">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Zip Code</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.ZipCode" ng-required="true">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- delete -->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- edit -->
-    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="form-control-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="form-control-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Full Name</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.FullName" ng-required="true">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Address</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.Address" ng-required="true">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">City</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.City" ng-required="true">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Country</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.Country" ng-required="true">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-lg-3 control-label">Zip Code</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" ng-model="customer.ZipCode" ng-required="true">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="vendor/jquery/jquery2.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap2.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/metisMenu/metisMenu.min.js"></script>
     <script src="dist/js/sb-admin-2.js"></script>
-    <script>
-        //add
-        $('#exampleModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var recipient = button.data('whatever') // Extract info from data-* attributes
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            modal.find('.modal-title').text('New message to ' + recipient)
-            modal.find('.modal-body input').val(recipient)
-        })
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="new/regis.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        console.log($.cookie('keep'));
+        function deleteCookie() {
+            $.removeCookie('keep');
+            console.log($.removeCookie('keep'));
+        }
     </script>
-
-
-        <script type="text/javascript" src="new/admin.js"></script>
-        <script type="text/javascript" src="js/jquery.cookie.js"></script>
-        <script type="text/javascript">
-            console.log($.cookie('keep'));
-
-            function deleteCookie() {
-                $.removeCookie('keep');
-                console.log($.removeCookie('keep'));
-            }
-        </script>
 </body>
 
 </html>

@@ -23,7 +23,8 @@ $(document).ready(function () {
                     $("#err5").hide();
                 },
                 rules: {
-                    name: "required",
+                    fname: "required",
+                    lname: "required",
                     image: "required",
                     job: "required",
                     addr: "required",
@@ -54,7 +55,8 @@ $(document).ready(function () {
                     }
                 },
                 messages: {
-                    name: "Please enter your firstname",
+                    fname: "Please enter your first name",
+                    lname: "Please enter your last name",
                     email: "Please enter a valid email address",
                     tel: "Please enter your telephone",
                     image: "Please enter your image",
@@ -99,7 +101,8 @@ $(document).ready(function () {
         $("#signup").click(function () {
             if ($("#signupForm").valid()) {
                 var newuser2 = {};
-                newuser2.name = $('#name').val();
+                newuser2.fname = $('#fname').val();
+                newuser2.lname = $('#lname').val();
                 newuser2.image = $("#image").val();
                 newuser2.job = $('#job').val();
                 newuser2.addr = $('#addr').val();
@@ -111,7 +114,7 @@ $(document).ready(function () {
                 newuser2.username = $("#username").val();
                 newuser2.password = $('#password').val();
                 newuser2.con_password = $('#con_password').val();
-                newuser2.date = $('#date').val();
+                newuser2.date = $('#a_date').val();
                 newuser2.status = $("#status:checked").val();
                 console.log(newuser2);
                 var urlss = "http://localhost:3000/authens";
