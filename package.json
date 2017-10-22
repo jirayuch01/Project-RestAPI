@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/jirayuch01/Project-RestAPI#readme",
   "dependencies": {
+    "chart.js": "^2.7.0",
     "http-server": "^0.10.0",
     "json-server": "^0.12.0",
     "moment": "^2.19.1"
