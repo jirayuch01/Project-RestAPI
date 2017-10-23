@@ -14,17 +14,18 @@
   <link rel="stylesheet" href="css/business-frontpage.css">
   <style>
     #myDIV {
-        width: 100%;
-        padding: 50px 0;
-        text-align: center;
-        background-color: lightblue;
-        margin-top: 20px;
+      width: 100%;
+      padding: 50px 0;
+      text-align: center;
+      background-color: lightblue;
+      margin-top: 20px;
     }
+
     .container {
-  width: 80%;
-  margin: 15px auto;
-}
-    </style>
+      width: 80%;
+      margin: 15px auto;
+    }
+  </style>
 </head>
 
 <body>
@@ -78,15 +79,16 @@
         </center>
         <br>
         <p>
-          <b>Last Profiles <kbd style="font-size: 18px; background-color: pink; color: red"><span id="conunt"></span></kbd> Found</b>
+          <b>Last Profiles <kbd style="font-size: 18px; background-color: pink; color: red">
+              <span id="conunt"></span></kbd> Found</b>
         </p>
         <br>
       </div>
     </div>
     <div id="myDIV">
-    <div class="row" id="summary">
+      <div class="row" id="summary">
+      </div>
     </div>
-  </div>
     <div class="row">
       <div class="col-sm-12">
         <h4 style="float:right; color: orange">
@@ -94,21 +96,27 @@
           <a href="signin.html" style="color:blueviolet;">view more</a>
           &nbsp;
           <i class="fa fa-arrow-right" aria-hidden="true"></i>
-          </h4><br>
-          <br>
-          <br><br>
+        </h4>
+        <br>
+        <br>
+        <br>
+        <br>
       </div>
       <div class="container">
-          <h2> <span style="color: #ff3399;">
-              <i>Chart</i>           
-            </span>  for Success in Dating   </h2><br>
-          <div>
-            <canvas id="myChart"></canvas>
-          </div>
+        <h2>
+          <span style="color: #ff3399;">
+            <i>Chart</i>
+          </span> for Success in Dating </h2>
+        <br>
+        <div>
+          <canvas id="myChart"></canvas>
         </div>
+      </div>
     </div>
-    <br><center>Thank you for using our website.</center><br>
-      
+    <br>
+    <center>Thank you for using our website.</center>
+    <br>
+
   </div>
   <footer class="py-5 bg-dark">
     <div class="container">
@@ -127,22 +135,22 @@
   <script type="text/javascript" src="new/home.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js'></script>
   <script>
-  var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    labels: ["Have a friend", "Dating is a friend", "Get married", "Talk about solving"],
-    datasets: [{
-      backgroundColor: [
-        "#2ecc71",
-        "#3498db",
-        "#95a5a6",
-        "#34495e"
-      ],
-      data: [12, 19, 17, 28]
-    }]
-  }
-});
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ["Have a friend", "Dating is a friend", "Get married", "Talk about solving"],
+        datasets: [{
+          backgroundColor: [
+            "#2ecc71",
+            "#3498db",
+            "#95a5a6",
+            "#34495e"
+          ],
+          data: [12, 19, 17, 28]
+        }]
+      }
+    });
   </script>
 </body>
 

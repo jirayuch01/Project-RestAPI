@@ -70,14 +70,18 @@ $().ready(function () {
 });
 
 $("#signup").click(function () {
-    var newuser = {};
-    newuser.username = $("#username").val();
-    newuser.password = $("#password").val();
-    newuser.con_password = $("#con_password").val();
-    newuser.status = $("#status").val();
-    console.log(newuser);
-    var url = "http://localhost:3000/authens";
-    $.post(url, newuser, function (data, status) {
-        console.log("Inserted " + data);
-    });
+    if ($("#signupForm").valid()) {
+        var newuser = {};
+        newuser.username = $("#username").val();
+        newuser.password = $("#password").val();
+        newuser.con_password = $("#con_password").val();
+        newuser.status = $("#status").val();
+        console.log(newuser);
+        var url = "http://localhost:3000/authens";
+        $.post(url, newuser, function (data, status) {
+            console.log("Inserted " + data);
+            $("#suc").show();
+            setTimeout(window.location.href = "signin.html", 1000);
+        });
+    }
 });
